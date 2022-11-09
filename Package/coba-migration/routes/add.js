@@ -20,6 +20,8 @@ conn.connect((err) => {
 
 /* GET users listing. */
 router.post('/', function (req, res, next) {
+    // let rawData = req;
+    // console.log(rawData);
     let data = { nama: req.body.nama, tgl_lahir: req.body.tgl_lahir, email: req.body.email, no_hp: req.body.no_hp, jenis_kelamin: req.body.jenis_kelamin  };
     let sql = "INSERT INTO users SET ?";
     let query = conn.query(sql, data, (err, results) => {
