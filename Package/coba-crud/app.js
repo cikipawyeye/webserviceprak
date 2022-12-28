@@ -17,11 +17,11 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// const bodyParser = require('body-parser');
-// app.use(bodyParser.raw(this.options))
+const bodyParser = require('body-parser');
+bodyParser.raw(this.options);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/siswa', studentsRouter);
+app.use('/siswa', bodyParser, studentsRouter);
 
 module.exports = app;
